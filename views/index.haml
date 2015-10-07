@@ -1,0 +1,24 @@
+!!! Strict
+%html
+  %head
+    %link{:rel=>'stylesheet', :href =>"/views/application.css",:type=>'text/css'}
+    %media{:name=>'viewport', :content=>'width=device-width', :'initial-scale'=>'1.0'}
+  %body
+    %h1 hello there
+    %ul
+      %li
+        apple
+      -3.times do |i|  
+        %li
+          %a{:href=>"http://google.com/q=#{i}",:id=>i} hello #{i}
+          %img{:src=>"logo.png"} 
+    %h2 balle
+    .blue
+    .red
+    .wrapper
+      .gr
+      .gr
+      .gr
+    -3.times do
+      .di XKK
+

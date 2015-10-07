@@ -1,0 +1,59 @@
+body
+  :background-color chartreuse
+  :font-family "Anonymous Pro"
+  :font-size larger
+  h1
+    :border 2px solid red
+    :display inline
+    //:margin auto
+  h1:hover ~ ul li
+    :display block
+    :opacity 1
+    :height auto
+  ul
+    :border dashed thin darkblue
+    li
+      color: chocolate
+      :opacity 0
+      :height 0
+      //:position absolute
+      :overflow visible
+      :transition opacity 2s
+    li:hover
+      :display inline
+      a
+        color: darkgrey
+  .blue
+    :width 30px
+    :height 30px
+    :background-color blue
+    :position absolute
+    :left 50px
+    :top 10px
+    :z-index 0
+  .red
+    :width 30px
+    :height 30px
+    :background-color chocolate
+    :z-index 20
+  .gr
+    :margin-top 50px
+    :margin-left 10px
+    :width 30%
+    :height 10px
+    :background darkblue
+    :float left
+  .wrapper:after
+    :content ""
+    :clear both
+    :display block
+
+@media screen and (max-width: 200px)
+  body
+    .gr
+      :width 70%
+      :margin-left 15%
+      :height 20px
+      :background darkorchid
+
+

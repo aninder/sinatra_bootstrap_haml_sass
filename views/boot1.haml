@@ -1,0 +1,109 @@
+!!! Strict
+%html{:lang=>"en"}
+  %head
+    %meta{:charset=>"utf-8"}
+    %link{:rel=>'stylesheet', :href =>"css/bootstrap.css",:type=>'text/css'}
+    %link{:rel=>'stylesheet', :href =>"views/boot1.css",:type=>'text/css'}
+    -#%link{:rel=>'stylesheet', :href =>"css/justified-nav.css",:type=>'text/css'}
+    %media{:name=>'viewport', :content=>'width=device-width', :'initial-scale'=>'1.0'}
+    %title boostrapping a project
+  %body
+    %nav
+      %ul.nav.nav-justified.nav-tabs
+        %li.active
+          %a{:href => "#"} Home
+        %li
+          %a{:href => "#"} Projects
+        %li
+          %a{:href => "#"} Services
+        %li
+          %a{:href => "#"} Downloads
+        %li
+          %a{:href => "#"} About
+        %li
+          %a{:href => "#"} Contact
+    %section
+      .jumbotron
+        .container
+          .row
+            .col-xs-6.first
+              %h1
+                Capture
+                %span.text-danger life
+              %p lorem ipsum lorem ipsiuim sdfada a ewsw ada d.
+              %p
+                %a.btn.btn-large.btn-success{:href=>"#"}
+                  Learn More
+                  %span.glyphicon.glyphicon-apple
+              .ic
+                .col-xs-5
+                  %a{:href=>"#"}
+                    %img.img-responsive{:src=>"images/two.png"}
+                .col-xs-5
+                  %a{:href=>"#"}
+                    %img.img-responsive{:src=>"images/one.png"}
+            .col-xs-6
+              %p.text-info dsfds ddsf dsf sfds f.
+              %a{:href=>"#"}
+                %img.img-responsive{:src=>"images/two.png"}
+    %section#middle
+      .container
+        .row
+          .col-xs-4
+            .thumbnail
+              %img{:alt => "...", :src => "..."}/
+              .caption
+                %h3 Thumbnail label
+                %p ...
+                %p
+                  %a.btn.btn-primary{:href => "#", :role => "button"} Button
+                  %a.btn.btn-default{:href => "#", :role => "button"} Button
+          .col-xs-4
+            .thumbnail
+              %img{:alt => "...", :src => "..."}/
+              .caption
+                %h3
+                  %span.text-danger Thumbnail label
+                %p ...
+                %p
+                  %a.btn.btn-primary{:href => "#", :role => "button"} Button
+                  %a.btn.btn-default{:href => "#", :role => "button"} Button
+          .col-xs-4
+            .thumbnail
+              %img{:alt => "...", :src => "..."}/
+              .caption
+                %h3 Thumbnail label
+                %p ...
+                %p
+                  %a.btn.btn-primary{:href => "#", :role => "button"} Button
+                  %a.btn.btn-default{:href => "#", :role => "button"} Button
+    %section#feature
+      .container
+        .row
+          .col-xs-5.col-xs-offset-1.thumbnail.features
+            %h1 gamma features
+            %ul.list-unstyled.list-group-item-danger
+              %li
+                %i.glyphicon.glyphicon-ok
+                  ewr dsf hyth jrsaf
+              %li.glyphicon.glyphicon-barcode sdfsdf ewr dsf hyth jrsaf
+              %li.glyphicon.glyphicon-bell sdfsdf ewr dsf hyth jrsaf
+              %li.glyphicon.glyphicon-download sdfsdf ewr dsf hyth jrsaf
+          .col-xs-4.col-xs-offset-2
+            %img.img-thumbnail.img-circle.img-responsive.img-align{:src=>"images/two.png"}
+
+    %footer
+      .container
+        .row
+          .col-xs-6
+            %ul.list-inline
+              %li Home
+              %li About
+              %li Contact
+              %li Privacy Policy
+          .col-xs-6
+            %p.pull-right Copyright &copy 2015.All Rights Reserved
+
+
+
+
