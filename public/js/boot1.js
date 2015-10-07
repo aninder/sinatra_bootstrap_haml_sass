@@ -24,5 +24,6 @@ function generateNoise(opacity) {
         }
     }
     //document.body.style.backgroundImage = 'url(' + canvas.toDataURL("image/png") + ')';
-    document.getElementById("crimg").setAttribute("src",canvas.toDataURL("image/png"))
+    //document.getElementById("crimg").setAttribute("src",canvas.toDataURL("image/png"))
+    document.getElementById("bl").setAttribute("background","linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);")
 }
