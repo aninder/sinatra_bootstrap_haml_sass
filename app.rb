@@ -5,7 +5,7 @@ get "/index" do
 end
 
 get "/" do
-  haml :boot1
+  slim :boot1
 end
 
 get "/views/application.css" do
