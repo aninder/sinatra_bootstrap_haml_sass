@@ -1,4 +1,7 @@
 require 'sinatra'
+require 'haml/template/options'
+
+Haml::Template.options[:format] = :xhtml
 
 get "/" do
   haml :index

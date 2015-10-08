@@ -12,16 +12,47 @@
       .panel.panel-danger
         .panel-heading
           %h3.panel-title Mobile ToDo
-        .panel-body
-          %p
-            %a.btn.btn-success{:href  =>'#'} Add a ToDo
-
+        .container.body-panel
+          .panel-body
+            %p
+              %a.btn.btn-lg.btn-success.fbutt.addtodo{:href  =>'#'} Add a ToDo
+              %a.btn.btn-lg.btn-danger.fbutt{:href  =>'#'} clear All Todos
+              %form.form-inline
+                .form-group
+                  .input-group
+                    .input-group-addon
+                      %span.glyphicon.glyphicon-search
+                    %input#exampleInputAmount.form-control{:placeholder => "Search Todos..", :type => "text"}/
+              %ul.list-group#listtodos
+                -#%li.list-group-item Cras justo odio
+                -#%li.list-group-item Dapibus ac facilisis in
+                -#%li.list-group-item Morbi leo risus
+                -#%li.list-group-item Porta ac consectetur ac
+                -#%li.list-group-item Vestibulum at eros
         .panel-footer
           %h4 copyright &copy
-
-
-
-
-
-
-
+    %div{:id=>'add'}
+      .row.jumbotron
+        .col-xs-3
+          %a.btn.btn-lg.btn-danger.pull-left{:href=>"#"}
+            %span.glyphicon.glyphicon-remove-circle
+            Cancel
+        .col-xs-6
+          %h2 Add a ToDo
+        .col-xs-3
+          %a.btn.btn-lg.btn-success.pull-right{:href=>"#"}
+            %span.glyphicon.glyphicon-ok
+            Save
+      .container
+        %form.form-inline#addform
+          .form-group
+            .input-group.btn-block
+              .input-group-addon
+                %span.glyphicon.glyphicon-search
+              %input#todoname.form-control{:placeholder => "Add Tdo Name", :type => "text"}/
+            .input-group.btn-block
+              .input-group-addon
+                %span.glyphicon.glyphicon-search
+              %input#tododate.form-control{:placeholder => "mm/dd/yy", :type => "date"}/
+      %footer.jumbotron
+        %p MobileTodo &copy

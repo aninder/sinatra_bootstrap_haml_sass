@@ -4,6 +4,39 @@ body {
 .panel {
  text-align: center;
 }
-.btn {
+.fbutt {
+    margin-bottom: 30px;
     width:100%
+
+}
+.form-inline {
+    /*padding:0 10px;*/
+    margin: 30px 0;
+
+}
+.input-group{
+    border: groove 1em darkolivegreen;
+}
+.body-panel {
+    margin-top:50px
+}
+#add {
+    display: none;
+}
+#home {
+    /*display:none;*/
+}
+.addhead {
+    text-align: center;
+}
+.jumbotron {
+    margin:0;
+    padding: 3px 0 3px 0;
+    text-align: center;
+}
+.jumbotron h2 {
+    margin-top: 3px;
+}
+.btn-block {
+    margin-bottom: 20px;
 }
