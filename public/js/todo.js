@@ -64,8 +64,17 @@ $(function(){
         $('#add').hide();
         jQuery.event.trigger('redraw_todo_list');
     });
-    $(document).bind('redraw_todo_list', function (e) {
+    $(document).bind('redraw_todo_list', function (e, param) {
         var todoarr = JSON.parse(localStorage.getItem('todos')) || [] ;
+        if(param){
+            var refine_list = [];
+            $.each(todoarr, function(index,item){
+                if(item['name'].search(param) != -1){
+                    refine_list.push(item);
+                }
+            });
+            todoarr = refine_list;
+        }
         $('#listtodos').html('');
         $.each(todoarr, function(index, item){
             $('#listtodos').append("<li class='list-group-item' id="+item['id']+" name="+item['name']+" date="+item['date']+">"+item['name']+" "+item['date']+"<span class='glyphicon glyphicon-pencil pull-right'</span</li>");
@@ -81,6 +90,9 @@ $(function(){
         $('#todoeditdate').val($(event.target).attr('date'));
         $('#hidden_id').val($(event.target).attr('id'));
     }));
+    $('#search').keyup(function(event){
+        jQuery.event.trigger('redraw_todo_list', $(this).val());
+    })
 });
 
 
