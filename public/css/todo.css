@@ -40,3 +40,19 @@ body {
 .btn-block {
     margin-bottom: 20px;
 }
+#listtodos {
+    height: auto;
+}
+#listtodos li {
+    cursor: pointer;
+}
+#listtodos li:hover {
+    background: #dddddd;
+}
+#edit {
+  display: none;
+}
+#addform .form-group{
+    width: 100%;
+    padding: 0 40px;
+}
