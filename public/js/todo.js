@@ -6,7 +6,8 @@ $(function(){
     $('#clearalltodo').click(function(e){
         if(confirm('are you sure')) {
             localStorage.removeItem('todos');
-            localStorage.removeItem('lastitem');
+            //localStorage.removeItem('lastid');
+            jQuery.event.trigger('redraw_todo_list');
         }
     });
     $('.jumbotron .pull-left').click(function(event){
@@ -17,9 +18,29 @@ $(function(){
     $('#add .pull-right').click(function(event){
         $('#addform').submit();
     });
-
     $('#edit .pull-right').click(function(event){
-        alert('edit cancel')
+        $('#editform').submit();
+    });
+    $('#editform').submit(function(){
+        var name = $('#todoeditname').val();
+        var date = $('#todoeditdate').val();
+        if (name == "" || date == "" ) {
+            alert('name and date cannot be blank');
+            return false ;
+        }
+        var toupdateid = $('#hidden_id').val();
+        var arr = JSON.parse(localStorage.getItem('todos'));
+        $.each(arr,function(index,item){
+            if(item['id'] == toupdateid ){
+                item['name'] = name;
+                item['date'] = date;
+                //alert('item updates, with values '+item['name']+" and "+item['date']+"!!");
+            }
+        });
+        localStorage.setItem('todos',JSON.stringify(arr));
+        $('#home').show();
+        $('#edit').hide();
+        jQuery.event.trigger('redraw_todo_list');
     });
     $('#addform').submit(function(){
         var name = $('#todoaddname').val();
@@ -41,24 +62,24 @@ $(function(){
         //alert(JSON.stringify(todoarr));
         $('#home').show();
         $('#add').hide();
-        jQuery.event.trigger('mycustomevent');
+        jQuery.event.trigger('redraw_todo_list');
     });
-    $(document).bind('mycustomevent', function (e) {
-        var todoarr = JSON.parse(localStorage.getItem('todos'));
+    $(document).bind('redraw_todo_list', function (e) {
+        var todoarr = JSON.parse(localStorage.getItem('todos')) || [] ;
         $('#listtodos').html('');
         $.each(todoarr, function(index, item){
             $('#listtodos').append("<li class='list-group-item' id="+item['id']+" name="+item['name']+" date="+item['date']+">"+item['name']+" "+item['date']+"<span class='glyphicon glyphicon-pencil pull-right'</span</li>");
         });
     });
     $('#home').show(function(){
-        jQuery.event.trigger('mycustomevent');
+        jQuery.event.trigger('redraw_todo_list');
     });
     $('#listtodos').delegate('li','click', (function(event){
         $('#home').hide();
         $('#edit').show();
-        alert($(event.target).attr('date'));
-        //$('#todoeditname').val()
-
+        $('#todoeditname').val($(event.target).attr('name'));
+        $('#todoeditdate').val($(event.target).attr('date'));
+        $('#hidden_id').val($(event.target).attr('id'));
     }));
 });
 
