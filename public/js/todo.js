@@ -77,7 +77,8 @@ $(function(){
         }
         $('#listtodos').html('');
         $.each(todoarr, function(index, item){
-            $('#listtodos').append("<li class='list-group-item' id="+item['id']+" name="+item['name']+" date="+item['date']+">"+item['name']+" "+item['date']+"<span class='glyphicon glyphicon-pencil pull-right'</span</li>");
+            $('#listtodos').append("<li class='list-group-item' id="+item['id']+" name="+item['name']+" date="+item['date']+">"+item['name']+" <span class='tododate'>"+item['date']+"</span><span class='glyphicon glyphicon-pencil pull-right'</span</li>");
+            //$('#listtodos').append("<li class='list-group-item' id="+item['id']+" name="+item['name']+" date="+item['date']+">"+item['name']+" "+item['date']+"<span class='glyphicon glyphicon-pencil pull-right'</span</li>");
         });
     });
     $('#home').show(function(){
@@ -92,6 +93,20 @@ $(function(){
     }));
     $('#search').keyup(function(event){
         jQuery.event.trigger('redraw_todo_list', $(this).val());
+    });
+    $('#trash').click(function(){
+        if(confirm('delete for sure ??')){
+            var arr = JSON.parse(localStorage.getItem('todos'));
+            $.each(arr, function(index, item){
+                if(item && item['id'] == $('#hidden_id').val()){
+                    arr.splice(index, 1);
+                }
+            });
+            localStorage.setItem('todos', JSON.stringify(arr));
+            $('#edit').hide();
+            $('#home').show();
+            jQuery.event.trigger('redraw_todo_list');
+        }
     })
 });
 

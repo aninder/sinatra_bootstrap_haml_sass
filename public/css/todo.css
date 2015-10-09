@@ -46,6 +46,7 @@ body {
 #listtodos li {
     cursor: pointer;
 }
+
 #listtodos li:hover {
     background: #dddddd;
 }
@@ -55,4 +56,14 @@ body {
 #addform .form-group{
     width: 100%;
     padding: 0 40px;
+}
+#trash {
+    padding:20px;
+    cursor: pointer;
+}
+.tododate {
+    font-size: 80%;
+    float:right;
+    font-weight: 700;
+    padding: 0 6px;
 }
